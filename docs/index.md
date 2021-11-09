@@ -11,6 +11,8 @@
    <link href="search.css" rel="stylesheet" type="text/css">
    <script src="cors.js"></script>
    <script src="zotero.js"></script>
+   <script src="pagination.js"></script>
+
 </head>
 
 <body>
