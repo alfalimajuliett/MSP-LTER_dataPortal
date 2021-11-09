@@ -1,36 +1,49 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
 
-You can use the [editor on GitHub](https://github.com/alfalimajuliett/MSP-LTER_dataPortal/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+<head>
+   <title>MSP-LTER Data Catalog Search (min UI)</title>
+   <meta charset="utf-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+   <link href="search.css" rel="stylesheet" type="text/css">
+   <script src="cors.js"></script>
+   <script src="zotero.js"></script>
+</head>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<body>
+   <div class="container">
+      <h1>Minimal User Interface Example</h1>
+      <p>This <a href="https://github.com/BLE-LTER/Zotero-JavaScript-Search-Client"
+            rel="noopener">Zotero-JavaScript-Search-Client</a> example does not include elements for letting the user
+         filter by
+         item type or sorting results. It also does not display the search URL.</p>
+      <p>Enter a search term, e.g., water. The user or group with ID <span id="displayId">(not set)</span> will be
+         searched.</p>
+      <form id="zoteroSearchForm" name="zoteroSearchForm">
+         <input class="search-input" name="q" placeholder="Enter search term" type="text">
+         <input type="submit" value="Search">
+      </form>
 
-### Markdown
+      <div class="loading" id="loading-div">
+         <i class="fas fa-spinner fa-pulse fa-3x fa-fw"></i>
+         <span class="sr-only">Loading...</span>
+      </div>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+      <p>Search results will be written below:</p>
+      <div class="resultCount" id="resultCount"></div>
+      <div id="searchResults"></div>
+      <div class="pagination" id="paginationBot"></div>
+   </div>
+   <script>
+      document.getElementById("displayId").innerHTML = ZOTERO_CONFIG["zotId"];
+   </script>
+</body>
 
-```markdown
-Syntax highlighted code block
+</html>
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/alfalimajuliett/MSP-LTER_dataPortal/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
