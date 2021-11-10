@@ -77,15 +77,11 @@
       <div class="pagination" id="paginationBot"></div>
    </div>
    <script>
-   // es module, most scenarios when using a bundler:
-   import api from 'zotero-api-client'
-   // common-js, node and some cases when using a bundler:
-   const { default: api } = require('zotero-api-client');
    // UMD bundle creates `ZoteroApiClient` global object
-   const { default: api } = ZoteroApiClient;
-    const response = await api().library('user', 8674630).collections('47YTIFFL').items().get();
-    const items = response.getData();
-    console.log(items.map(i => i.title));
+      const { default: api } = ZoteroApiClient;
+      const response = await api().library('user', 8674630).collections('47YTIFFL').items().get();
+      const items = response.getData();
+      console.log(items.map(i => i.title));
    </script>
 </body>
 
