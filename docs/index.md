@@ -9,9 +9,7 @@
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
    <link href="search.css" rel="stylesheet" type="text/css">
-   <script src="cors.js"></script>
-   <script src="pagination.js"></script>
-   <script src="zotero.js"></script>
+   <script src="https://unpkg.com/zotero-api-client"></script>
 </head>
 
 <body>
@@ -79,7 +77,15 @@
       <div class="pagination" id="paginationBot"></div>
    </div>
    <script>
-      document.getElementById("displayId").innerHTML = ZOTERO_CONFIG["zotId"];
+   // es module, most scenarios when using a bundler:
+   import api from 'zotero-api-client'
+   // common-js, node and some cases when using a bundler:
+   const { default: api } = require('zotero-api-client');
+   // UMD bundle creates `ZoteroApiClient` global object
+   const { default: api } = ZoteroApiClient;
+    const response = await api().library('user', 8674630).collections('47YTIFFL').items().get();
+    const items = response.getData();
+    console.log(items.map(i => i.title));
    </script>
 </body>
 
